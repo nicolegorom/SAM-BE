@@ -1,4 +1,4 @@
-<?php include 'db.php'; ?>
+<?php include 'connect.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,12 +70,6 @@
         </div>
     </nav>
 
-    <!-- Top menu on small screens -->
-    <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-        <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-        <!-- <span>JULES' ISLANDS OF PERSONALITY</span> -->
-    </header>
-
     <!-- Overlay effect when opening sidebar on small screens -->
     <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
         id="myOverlay"></div>
@@ -85,7 +79,7 @@
 
         <!--HEADER-->
         <div class="w3-container" style="margin-top:80px" id="showcase">
-            <h1 class="w3-jumbo"><b>JULES' ISLANDS OF PERSONALITY</b></h1>
+            <h1><b>JULES' ISLANDS OF PERSONALITY</b></h1>
         </div>
 
         <!--FRIENDSHIP LAGOON-->
@@ -112,8 +106,7 @@
 
                 while ($row = mysqli_fetch_array($friendshipLagoonResult)) {
                     echo '<div class="w3-half w3-content w3-center">';
-                    echo '<h2>' . $row['content'] . '</h2>';
-                    echo '<img src="' . $row['image'] . '" alt="Random Name" style="width:100%; padding: 10px;" onclick="onClick(this)">';
+                    echo '<img src="' . $row['image'] . '" alt="' . $row['content'] . '" style="width:100%; padding: 10px;" onclick="onClick(this)">';
                     echo '</div>';
 
                     $counter++;
@@ -170,53 +163,6 @@
 
                 echo '</div>';
             ?>
-        </div>
-
-        <?php
-            }
-        ?>
-
-        <!--HOBBY HAVEN-->
-        <?php
-        $getQuery = "SELECT * FROM `islandsOfPersonality` WHERE islandOfPersonalityID = 3";
-        $hobbyHavenResult = executeQuery($getQuery);
-
-        while ($row = mysqli_fetch_array($hobbyHavenResult)) {
-        ?>
-        
-        <div class="w3-container w3-content" 
-            style="max-width:100%;" 
-            id="<?php echo 'island-' .  $row['islandOfPersonalityID'];?>">
-            <h1 style="font-weight: bold; color: <?php echo $row['color'];?>" id="<?php echo 'island-' . $row['islandOfPersonalityID']; ?>"><b> <?php echo $row['name'];?> </b></h1>
-            <p> <?php echo $row['shortDescription'];?> </p>
-            <p style="text-align: justify;"> <?php echo $row['longDescription'];?> </p>
-
-            <?php
-                $getQuery = "SELECT * FROM `islandContents` WHERE islandOfPersonalityID = 3";
-                $hobbyHavenResult = executeQuery($getQuery);
-
-                $counter = 0;
-                echo '<div class="w3-row w3-padding-32">';
-
-                while ($row = mysqli_fetch_array($hobbyHavenResult)) {
-                    echo '<div class="w3-quarter w3-content w3-center">';
-                    echo '  <div class="w3-card" style=" min-width: 50%; margin: 10px; padding: 10px;">';
-                    echo '      <p style="margin-bottom: 15px;">' . $row['content'] . '</p>';
-                    echo '  </div>';
-                    echo '</div>';
-
-                    $counter++;
-
-                    // Check if 4 quarters are filled, then close the row and start a new one
-                    if ($counter % 4 == 0) {
-                        echo '</div>';
-                        echo '<div class="w3-row w3-padding-32">';
-                    }
-                }
-
-                echo '</div>'; // Close the last row
-            ?>
-
         </div>
 
         <?php
