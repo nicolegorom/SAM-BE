@@ -7,6 +7,7 @@
     <title>The Olympic Village</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="images/olympicLogoSquare.png" type="image/png">
     <style>
         .loader-3 {
             width: 10em;
@@ -18,27 +19,28 @@
             width: 1em;
             height: 1em;
             border-radius: 50%;
+            background-color: transparent;
             position: relative;
         }
 
         .circle:nth-child(1) {
-            background-color: #90be6d;
+            border: 0.2em solid #0078D0;
         }
 
         .circle:nth-child(2) {
-            background-color: #f9c74f;
+            border: 0.2em solid #FFB114;
         }
 
         .circle:nth-child(3) {
-            background-color: #f8961e;
+            border: 0.2em solid #000000;
         }
 
         .circle:nth-child(4) {
-            background-color: #f3722c;
+            border: 0.2em solid #00A651;
         }
 
         .circle:nth-child(5) {
-            background-color: #f94346;
+            border: 0.2em solid #F0282D;
         }
 
         .circle::before {
@@ -52,26 +54,26 @@
         }
 
         .circle:nth-child(1)::before {
-            background-color: #90be6d;
+            background-color: #0049AA;
         }
 
         .circle:nth-child(2)::before {
-            background-color: #f9c74f;
+            background-color: #FA841E;
             animation-delay: 0.2s;
         }
 
         .circle:nth-child(3)::before {
-            background-color: #f8961e;
+            background-color: #2E2E2E;
             animation-delay: 0.4s;
         }
 
         .circle:nth-child(4)::before {
-            background-color: #f3722c;
+            background-color: #00804D;
             animation-delay: 0.6s;
         }
 
         .circle:nth-child(5)::before {
-            background-color: #f94346;
+            background-color: #BF192B;
             animation-delay: 0.8s;
         }
 
@@ -112,7 +114,7 @@
 
     <script>
         setTimeout(function () {
-            window.location.href = 'login.html';
+            window.location.href = 'prelogin.html';
         }, 3000);
     </script>
 

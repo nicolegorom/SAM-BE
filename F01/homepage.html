@@ -60,7 +60,6 @@
             z-index: 1000;
         }
 
-
         .icons {
             position: absolute;
             top: 10px;
@@ -72,18 +71,21 @@
 
         .icons i {
             font-size: 2em;
-            color: white;
+            /* color: white; */
             cursor: pointer;
         }
 
         .icon-left {
-            color: red;
+            color: #F0282D;
         }
 
         .icon-right {
-            color: green;
+            color: #F0282D;
         }
 
+        .navbar {
+            background-color: #0078D0;
+        }
         /* Style for bottom navbar on mobile */
         @media (max-width: 768px) {
             .navbar-bottom {
@@ -91,7 +93,7 @@
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                background-color: #f8f9fa;
+                background-color: #0078D0;
             }
         }
     </style>
@@ -99,7 +101,7 @@
 
 <body>
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-lg-flex">
+    <nav class="navbar navbar-expand-lg navbar-light d-none d-lg-flex">
         <div class="container-fluid">
             <a class="navbar-brand" href="homepage.html">Olympic Village</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -120,7 +122,7 @@
     </nav>
 
     <!--MOBILE NAVBAR-->
-    <nav class="navbar navbar-bottom navbar-light bg-light d-lg-none">
+    <nav class="navbar navbar-bottom navbar-light d-lg-none">
         <div class="container-fluid">
             <ul class="navbar-nav d-flex flex-row justify-content-around w-100">
                 <li class="nav-item">
