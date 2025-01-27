@@ -4,95 +4,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>The Olympic Village</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="images/olympicLogoSquare.png" type="image/png">
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            overflow-x: hidden;
+        }
+
+        .container-fluid {
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #0078D0;
+            color: white;
+            width: 100%;
+        }
+
         .profile-picture {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
+            border: 3px solid white;
         }
 
-        .profile-header {
+        .gallery-section {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #ffffff;
             text-align: center;
-            margin-top: 20px;
+            width: 100%;
         }
 
-        /* Style for bottom navbar on mobile */
+        .gallery-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
         @media (max-width: 768px) {
-            .navbar-bottom {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background-color: #f8f9fa;
+            .container-fluid {
+                flex-direction: column;
+                height: auto;
+                overflow: auto;
+            }
+
+            .gallery-section {
+                max-height: 50vh;
             }
         }
     </style>
 </head>
 
 <body>
-    <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-lg-flex">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="homepage.html">Olympic Village</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="homepage.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.html">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-danger nav-link" onclick="logout()">Logout</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!--MOBILE NAVBAR-->
-    <nav class="navbar navbar-bottom navbar-light bg-light d-lg-none">
-        <div class="container-fluid">
-            <ul class="navbar-nav d-flex flex-row justify-content-around w-100">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="profile.html">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-danger nav-link" onclick="logout()">Logout</button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!--PROFILE CONTENT-->
-    <div class="container">
-        <div class="profile-header">
-            <img id="profileImage" src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
-            <h2>John Doe</h2>
-            <p><strong>Birthdate:</strong> <span id="birthdate-placeholder">N/A</span></p>
-            <p><strong>Country:</strong> <span id="country-placeholder">Country Placeholder</span></p>
-            <p><strong>Sport:</strong> <span id="sport-placeholder">Sport Placeholder</span></p>
+    <div class="container-fluid">
+        <!--PROFILE-->
+        <div class="profile-section text-center">
+            <img id="profileImage" src="images/daniProfilePicture.jpg" alt="Profile Picture" class="profile-picture">
+            <h2 id="name-placeholder">Daniela Avanzini Llorente</h2>
+            <p><strong>Birthdate:</strong> <span id="birthdate-placeholder">July 1st, 2004</span></p>
+            <p><strong>Country:</strong> <span id="country-placeholder">USA</span></p>
+            <p><strong>Sport:</strong> <span id="sport-placeholder">Artistic Gymnastics</span></p>
             <p><strong>Medal:</strong> Gold</p>
-            <p><strong>Bio:</strong> <span id="bio-placeholder">Bio Placeholder</span></p>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+            <p><strong>Bio:</strong> <span id="bio-placeholder">The Realest Latina Mami</span></p>
+            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editProfileModal">
                 Edit Profile
             </button>
         </div>
+
+        <!--PHOTO GALLERY SECTION-->
+        <div class="gallery-section">
+            <div class="gallery">
+                <img src="images/dani1.jpg" alt="Gallery Image">
+                <img src="images/dani2.jpg" alt="Gallery Image">
+                <img src="images/dani3.jpg" alt="Gallery Image">
+                <img src="images/dani4.jpg" alt="Gallery Image">
+                <img src="images/dani5.jpg" alt="Gallery Image">
+                <img src="images/dani6.jpg" alt="Gallery Image">
+                <img src="images/dani7.jpg" alt="Gallery Image">
+                <img src="images/dani8.jpg" alt="Gallery Image">
+                <img src="images/dani9.jpg" alt="Gallery Image">
+            </div>
+        </div>
     </div>
 
-    <!--MODAL-->
-    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel"
-        aria-hidden="true">
+    <!--EDIT PROFILE MODAL-->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -102,78 +124,45 @@
                 <div class="modal-body">
                     <form id="editProfileForm">
                         <div class="mb-3">
-                            <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" value="John">
+                            <label for="editName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="editName" value="Daniela Avanzini Llorente">
                         </div>
                         <div class="mb-3">
-                            <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" value="Doe">
+                            <label for="editBirthdate" class="form-label">Birthdate</label>
+                            <input type="date" class="form-control" id="editBirthdate">
                         </div>
                         <div class="mb-3">
-                            <label for="birthdate" class="form-label">Birthdate</label>
-                            <input type="date" class="form-control" id="birthdate" value="2000-01-01">
+                            <label for="editCountry" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="editCountry" value="USA">
                         </div>
                         <div class="mb-3">
-                            <label for="country" class="form-label">Country</label>
-                            <input type="text" class="form-control" id="country" placeholder="Enter your country">
+                            <label for="editSport" class="form-label">Sport</label>
+                            <input type="text" class="form-control" id="editSport" value="Artistic Gymnastics">
                         </div>
                         <div class="mb-3">
-                            <label for="sport" class="form-label">Sport</label>
-                            <input type="text" class="form-control" id="sport" placeholder="Enter your sport">
+                            <label for="editBio" class="form-label">Bio</label>
+                            <textarea class="form-control" id="editBio" rows="3">The Realest Latina Mami</textarea>
                         </div>
-                        <div class="mb-3">
-                            <label for="bio" class="form-label">Bio</label>
-                            <textarea class="form-control" id="bio" rows="3" placeholder="Enter a brief bio"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="profilePhoto" class="form-label">Profile Photo</label>
-                            <input type="file" class="form-control" id="profilePhoto" accept="image/*">
-                        </div>
+                        <button type="button" class="btn btn-primary" onclick="saveProfileChanges()">Save Changes</button>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveChangesButton">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('saveChangesButton').addEventListener('click', function () {
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const birthdate = document.getElementById('birthdate').value;
-            const country = document.getElementById('country').value;
-            const sport = document.getElementById('sport').value;
-            const bio = document.getElementById('bio').value;
-            const profilePhoto = document.getElementById('profilePhoto').files[0];
-
-            document.querySelector('h2').innerText = `${firstName} ${lastName}`;
-            document.getElementById('birthdate-placeholder').innerText = birthdate || "N/A";
-            document.getElementById('country-placeholder').innerText = country || "Country Placeholder";
-            document.getElementById('sport-placeholder').innerText = sport || "Sport Placeholder";
-            document.getElementById('bio-placeholder').innerText = bio || "Bio Placeholder";
-
-            if (profilePhoto) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    document.getElementById('profileImage').src = e.target.result;
-                };
-                reader.readAsDataURL(profilePhoto);
-            }
-
-            var modal = bootstrap.Modal.getInstance(document.getElementById('editProfileModal'));
+        function saveProfileChanges() {
+            document.getElementById('name-placeholder').innerText = document.getElementById('editName').value;
+            document.getElementById('birthdate-placeholder').innerText = document.getElementById('editBirthdate').value;
+            document.getElementById('country-placeholder').innerText = document.getElementById('editCountry').value;
+            document.getElementById('sport-placeholder').innerText = document.getElementById('editSport').value;
+            document.getElementById('bio-placeholder').innerText = document.getElementById('editBio').value;
+            var modal = new bootstrap.Modal(document.getElementById('editProfileModal'));
             modal.hide();
-        });
-
-        function logout() {
-            // Implement your logout logic here
-            alert("You have been logged out.");
-            window.location.href = 'login.html'; // Redirect to login page
         }
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -4,19 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>The Olympic Village</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="images/olympicLogoSquare.png" type="image/png">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
         .photo-placeholder {
-            background: url('images/seungkwanBadminton.jpg') no-repeat center center;
+            background: url('images/loginBackground.png') no-repeat center center;
             background-size: cover;
-            min-height: 100vh; /* Ensure it takes up full height but doesn't overflow */
+            min-height: 100vh;
             flex: 1;
         }
 
         .registrationForm img {
             width: 20%;
-            max-width: 100%; /* Ensure the image doesn't overflow */
+            max-width: 100%;
         }
 
         @media (max-width: 768px) {
@@ -25,7 +33,7 @@
             }
 
             .registrationForm img {
-                width: 40%; /* Make the image smaller on mobile */
+                width: 40%;
             }
 
             .registrationForm {
@@ -34,12 +42,18 @@
             }
         }
 
-        /* Adjust form to be responsive */
         .container-fluid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
+
+        .container-fluid, .row {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
 
         .row {
             display: flex;
@@ -47,18 +61,17 @@
         }
 
         .col-md-6 {
-            flex: 1 1 50%; /* Ensure this takes up 50% on larger screens */
+            flex: 1 1 50%;
         }
 
         .registrationForm {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Ensure full height on smaller screens */
+            min-height: 100vh;
             padding: 20px;
         }
 
-        /* Remove unnecessary space on small screens */
         body, html {
             margin: 0;
             padding: 0;
@@ -81,8 +94,7 @@
                     <div class="d-flex justify-content-center align-items-center">
                         <img class="mb-4" src="images/olympicLogo.png" alt="Olympic Logo">
                     </div>
-                    <h1 class="text-center mb-3">The Olympic Village</h1>
-                    <h2 class="text-center mb-2">Registration Form</h2>
+                    <h1 class="text-center mb-3" style="color: #0078D0;">The Olympic Village</h1>
                     <form>
                         <div class="mb-1">
                             <label for="firstName" class="form-label">First Name</label>
@@ -109,7 +121,7 @@
                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
                                 required>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                        <button type="submit" class="btn btn-primary w-100" style="background-color: #0078D0;">Submit</button>
                     </form>
                     <p class="text-center mt-3">
                         Already have an account? <a href="login.html">Login here</a>
